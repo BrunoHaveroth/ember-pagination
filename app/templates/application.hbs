@@ -1,3 +1,14 @@
-<h2 id="title">Welcome to Ember</h2>
+<h2 id="title">EMBER PAGINATION</h2>
 
-{{outlet}}
+<ul>
+  {{#each client in model.clients}}
+    <li>{{client.name}}</li>
+  {{/each}}
+</ul>
+
+{{ember-pagination
+  perPage=5
+  limit=5
+  content=model.clients
+  total=model.total
+  loadAction='loadMore'}}
