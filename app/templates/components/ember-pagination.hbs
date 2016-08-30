@@ -1,25 +1,25 @@
-<nav aria-label="Page navigation">
+<div class="pagination-bar text-center">
   <ul class="pagination">
     {{#if havePrev}}
       <li {{action 'prev'}}>
-        <a href="#" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
+        <a href="#" aria-label="Previous" class="pagination-btn">
+          <span aria-hidden="true">&laquo;</span> Anteriores
         </a>
       </li>
     {{/if}}
 
-    {{#each page in arrayPages}}
-      <li {{action 'loadNewPage' page}}>
-        <a href="#">{{page}}</a>
+    {{#each arrayPages as |page| }}
+      <li {{action 'loadNewPage' page}} class="{{if page.selected 'active'}}">
+        <a href="#">{{page.pageNumber}}</a>
       </li>
     {{/each}}
 
     {{#if haveNext}}
       <li {{action 'next'}}>
-        <a href="#" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
+        <a href="#" aria-label="Next" class="pagination-btn">
+          Próximas <span aria-hidden="true">&raquo;</span>
         </a>
       </li>
     {{/if}}
   </ul>
-</nav>
+</div>
